@@ -1,0 +1,83 @@
+.aboutWrapper {
+    height: 80vh; /* Почти вся высота экрана */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.aboutContent {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Текст сверху, фото снизу */
+    align-items: center;
+    gap: 40px; /* Расстояние между текстом и фото */
+    text-align: center;
+}
+
+/* Стили для текстового блока */
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mainTitle {
+    color: #8a2be2; /* Твой фирменный фиолетовый */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.philosophicalText {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    background: #f3ebff; /* Очень светлый фиолетовый фон */
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #8a2be2; /* Фиолетовая черта слева */
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.subText {
+    font-size: 0.95rem;
+    color: #888;
+}
+
+/* Стили для контейнера изображения */
+.imageContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wednesdayImage {
+    max-width: 100%;
+    height: auto;
+    width: 400px; /* Ограничим ширину, чтобы не была огромной */
+    border-radius: 15px;
+    /* Твоя фирменная фиолетовая обводка и свечение */
+    border: 3px solid #8a2be2;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.wednesdayImage:hover {
+    transform: scale(1.03); /* Легкое увеличение при наведении */
+}
+
+.imageCaption {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+    font-style: italic;
+}

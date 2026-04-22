@@ -1,0 +1,30 @@
+.loaderWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loaderContent {
+    text-align: center;
+}
+
+.loaderGif {
+    width: 280px;
+    border-radius: 20px;
+    border: 3px solid #8a2be2;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+.loaderText {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #8a2be2;
+    font-size: 1.2rem;
+}

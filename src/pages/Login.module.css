@@ -1,0 +1,75 @@
+.loginWrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdfbff; /* Светлый фон, чтобы фиолетовый выделялся */
+    /* Можно добавить легкий градиент на фоне */
+    background: radial-gradient(circle at center, #ffffff 0%, #f3ebff 100%);
+}
+
+.loginCard {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: white;
+    border: 3px solid #8a2be2;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.loginCard:hover {
+    transform: translateY(-5px);
+}
+
+.loginHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-weight: 800;
+    color: #8a2be2;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.loginHeader h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.loginHeader p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputGroup label {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+.loginFooter {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+}

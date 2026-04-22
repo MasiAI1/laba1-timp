@@ -1,0 +1,236 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.App {
+    padding: 80px 20px 20px; /* 80px сверху, чтобы навбар не перекрывал */
+    background-color: #fdfbff;
+    background-image: 
+        linear-gradient(rgba(138, 43, 226, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138, 43, 226, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px; /* Сетка как в тетради или на радаре */
+    min-height: 100vh;
+}
+
+h1 {
+    color: #8a2be2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+#root{
+    display: flex;
+    justify-content: center;
+}
+
+.post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #8a2be2;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.post:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
+}
+
+/* Базовый стиль точки */
+.status-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+}
+
+/* КРИТИЧЕСКИЙ: Ярко-красный + сильное свечение */
+.dot--critical {
+    background: #ff0000;
+    box-shadow: 0 0 12px #ff0000;
+}
+
+/* ВЫСОКИЙ: Оранжевый */
+.dot--high {
+    background: #ff8c00;
+    box-shadow: 0 0 8px #ff8c00;
+}
+
+/* СРЕДНИЙ: Желтый */
+.dot--medium {
+    background: #ffd700;
+    box-shadow: 0 0 8px #ffd700;
+}
+
+/* НИЗКИЙ: Твой любимый фиолетовый */
+.dot--low {
+    background: #8a2be2;
+    box-shadow: 0 0 8px #8a2be2;
+}
+
+.dot--default {
+    background: #bbb;
+}
+
+/* Анимация мигания только для критических */
+.blink {
+    animation: critical-alarm 1s infinite alternate;
+}
+
+@keyframes critical-alarm {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.5; transform: scale(1.2); }
+}
+.post_id {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #bbb;
+    margin-left: 15px;
+}
+
+/* Название классов должно совпадать с classNames="post" в CSSTransition */
+
+/* ПЕРВАЯ ФАЗА: Элемент только добавился в DOM, но еще не виден */
+.post-enter {
+  opacity: 0;
+  /* Начинаем чуть меньше обычного размера */
+  transform: scale(0.9); 
+  /* Изначально тень прозрачная */
+  box-shadow: 0 0 0 rgba(138, 43, 226, 0);
+}
+
+/* ВТОРАЯ ФАЗА: Активная анимация появления (сама "вспышка") */
+.post-enter-active {
+  opacity: 1;
+  /* Возвращаем обычный размер */
+  transform: scale(1);
+  
+  /* ЭФФЕКТ ВСПЫШКИ: Мощное, яркое фиолетовое свечение */
+  box-shadow: 0 0 20px 5px rgba(138, 43, 226, 0.7);
+  
+  /* Плавный переход для всех свойств */
+  transition: opacity 500ms ease-out, transform 500ms ease-out, box-shadow 500ms ease-out;
+}
+
+/* ТРЕТЬЯ ФАЗА: Анимация закончилась. 
+   React transition group убирает классы -enter и -enter-active, 
+   и элемент плавно возвращается к своим обычным стилям (тень исчезает) */
+
+
+/* --- Стили для удаления (оставляем старые) --- */
+/* --- Анимация УДАЛЕНИЯ (классы post-exit) --- */
+
+/* Начало удаления */
+.post-exit {
+  opacity: 1;
+  transform: scale(1);
+  max-height: 500px; /* Достаточно большое значение, перекрывающее высоту поста */
+}
+
+/* Активная фаза удаления */
+.post-exit-active {
+  opacity: 0;
+  /* Элемент плавно уменьшается и чуть-чуть уходит назад */
+  transform: scale(0.85);
+  
+  /* Магия схлопывания: плавно убираем высоту и внешние отступы, 
+     чтобы нижние посты "подтянулись" вверх без прыжка */
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+  
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page__wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Центрируем страницы под списком */
+    gap: 10px;               /* Расстояние между цифрами */
+}
+
+.page {
+    padding: 10px 15px;
+    border: 2px solid #8a2be2; /* Твой фирменный фиолетовый */
+    border-radius: 8px;
+    cursor: pointer;
+    color: #8a2be2;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background: white;
+    user-select: none; /* Чтобы цифры не выделялись как текст при клике */
+}
+
+/* Эффект при наведении */
+.page:hover {
+    background-color: #f3ebff;
+    transform: translateY(-2px); /* Легкий подъем вверх */
+}
+
+/* СТИЛЬ ТЕКУЩЕЙ СТРАНИЦЫ */
+.page__current {
+    background-color: #8a2be2;
+    color: white;
+    box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+}
+
+.navbar {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    background: rgba(255, 255, 255, 0.9); /* Слегка прозрачный фон */
+    backdrop-filter: blur(5px);           /* Эффект матового стекла */
+    border-bottom: 2px solid #8a2be2;    /* Твоя фиолетовая линия */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(138, 43, 226, 0.1);
+}
+
+.navbar__logo {
+    color: #8a2be2;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.navbar__links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Эффект при наведении на ссылку */
+.navbar__link:hover {
+    color: #8a2be2;
+    background: #f3ebff;
+}
+
+/* Если страница активна (для NavLink) */
+.active {
+    color: #8a2be2;
+    text-decoration: underline;
+}
