@@ -1,7 +1,8 @@
 import axios from 'axios';
+const API_URL = 'http://localhost:3000/incidents';
 export default class PostServ{
     static async getAll(limit=10,page=1){
-           const response= await axios.get("https://69e6072dce4e908a155ed5a5.mockapi.io/incidents",{
+           const response= await axios.get(API_URL,{
                 params:{
                     limit:limit,
                     page:page
@@ -10,18 +11,18 @@ export default class PostServ{
            return response;
     }
      static async getById(id){
-           const response= await axios.get("https://69e6072dce4e908a155ed5a5.mockapi.io/incidents/" + id);
+           const response= await axios.get(`${API_URL}/${id}`);
            return response;
     }
     static async create(post) {
-        return await axios.post('https://69e6072dce4e908a155ed5a5.mockapi.io/incidents', post);
+        return await axios.post(API_URL, post);
     }
 
     static async update(post) {
-        return await axios.put(`https://69e6072dce4e908a155ed5a5.mockapi.io/incidents/${post.id}`, post);
+        return await axios.put(`${API_URL}/${post.id}`, post);
     }
 
     static async delete(id) {
-        return await axios.delete(`https://69e6072dce4e908a155ed5a5.mockapi.io/incidents/${id}`);
+        return await axios.delete(`${API_URL}/${id}`);
     }
 }
