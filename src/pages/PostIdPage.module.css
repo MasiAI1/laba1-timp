@@ -35,6 +35,30 @@
     margin-bottom: 20px;
 }
 
+.headerTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.statusBadge {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.categoryBadge {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #f3ebff;
+    color: #8a2be2;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
 .idTag {
     background: #8a2be2;
     color: white;
@@ -52,7 +76,7 @@
 
 .infoGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 15px;
     margin-bottom: 30px;
 }

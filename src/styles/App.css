@@ -95,6 +95,84 @@ h1 {
     margin-left: 15px;
 }
 
+.post_meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.post_details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.post_tag {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #f3ebff;
+    color: #8a2be2;
+    border: 1px solid rgba(138, 43, 226, 0.25);
+}
+
+.post_tag--zone {
+    background: #eef8ff;
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.25);
+}
+
+.post_status {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status--new {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status--progress {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status--resolved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status--closed {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.status--default {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.post_filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.post_filter select,
+.post_filter input {
+    margin-top: 0;
+}
+
 /* Название классов должно совпадать с classNames="post" в CSSTransition */
 
 /* ПЕРВАЯ ФАЗА: Элемент только добавился в DOM, но еще не виден */

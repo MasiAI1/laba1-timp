@@ -15,13 +15,17 @@ import Pagination from '../Ui/pagination/Pagination';
 function App() {
   const [books,setBook]=useState([]);
   const [filter,setFilter]=useState({
-    sort:"",search:""
+    sort: "",
+    search: "",
+    status: "",
+    category: "",
+    zone: "",
   })
   const[modal,setModal]=useState(false);
   const [totalPages,setTotalPages]=useState(0);
   const [limit,setLimit]=useState(10);
   const [page,setPage]=useState(1);
-  const selecledSearch=useSoredSearchedBooks(filter.sort,filter.search,books);
+  const selecledSearch=useSoredSearchedBooks(filter, books);
   
   const remove=async (post)=>{
     await PostServ.delete(post.id);
